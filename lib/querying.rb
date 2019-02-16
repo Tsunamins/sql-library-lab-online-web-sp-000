@@ -16,9 +16,9 @@ def select_name_and_series_subgenres_of_authors
 end
 
 def select_series_title_with_most_human_characters
-  "Write your SQL query here"
+  "SELECT series.title FROM series LEFT OUTER JOIN characters ON characters.series_id = series.id WHERE characters.species = 'human' LIMIT 1;"
 end
 
 def select_character_names_and_number_of_books_they_are_in
-  "Write your SQL query here"
+  "SELECT characters.name, COUNT(character_books.book_id) FROM character_books LEFT OUTER JOIN characters ON characters.id = character_books.character_id GROUP BY characters.name ORDER BY COUNT(character_books.book_id) DESC;"
 end
